@@ -1,1 +1,146 @@
-*{box-sizing:border-box}body{margin:0;padding:0;position:relative;background-color:#dcdcd1}.header{position:relative;width:100%;box-shadow:0 10px 15px #000}.header-image{position:absolute;top:0;left:0;width:100%;height:100%;background-image:url(/assets/wood3-BvUO7MkC.jpg);background-repeat:repeat;background-position:right;z-index:-1;opacity:.8}.caveat-brush-regular{font-family:Caveat Brush,cursive;font-weight:400;font-style:normal;font-size:46px}.playpen-sans{font-family:Playpen Sans,cursive;font-weight:600;font-style:normal}.logo{color:#fff;margin:0;padding-right:55px;padding-bottom:5px;text-align:right}.btn-container{display:flex;justify-content:center;padding-top:50px}.add-button{padding-bottom:10px;width:400px;height:45px;font-size:23px;border-radius:6px;border-color:azure;background-color:#cac52a;color:#000;cursor:pointer}.notes-container{margin:2%;display:grid;justify-content:center}.note{position:relative;background-color:#fff;margin:5px 0;padding:15px 45px 15px 15px;width:300px;border:1px solid rgb(214,206,206);border-radius:6px;box-shadow:4px 4px 7px #959191;font-size:15px}.title{display:block;padding:5px;border-bottom:2px solid rgb(135,131,131);font-size:18px;font-weight:600}.body{padding:5px}.delete-icon{position:absolute;top:8px;right:12px;cursor:pointer}.color-picker-btn{background:linear-gradient(90deg,red,#ff9e00,#f8f900,#21f411,#22f24f,#1ff0b5,#1cb8ee 36%,#1957f0 43%,#20f,#7e00fc 55%,#ae00f1,#ed59f7,#f600fe,#ff00df 83%,#ff0027 89%,#fc0045 94%,red);width:25px;height:25px;border-radius:50%;cursor:pointer;position:absolute;bottom:10px;right:10px;z-index:1}.note .color-picker-panel{background-color:#f5f5f5;padding:5px 10px 10px;border:1px solid rgb(214,206,206);border-radius:5px;box-shadow:2px 2px 4px #d0c8c8;position:absolute;bottom:-105px;right:10px;z-index:2}.specified-colors{text-decoration:none;padding:0}.spec-color{display:inline-block;width:35px;height:35px;margin-right:5px;border:1px solid gray;border-radius:2px;background-color:bisque}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: #dcdcd1;
+}
+.header {
+    position: relative;
+    width: 100%;
+    box-shadow: 0 10px 15px #000;
+}
+.header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./assets/wood3-BvUO7MkC.jpg);
+    background-repeat: repeat;
+    background-position: right;
+    z-index: -1;
+    opacity: 0.8;
+}
+.caveat-brush-regular {
+    font-family: Caveat Brush, cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 46px;
+}
+.playpen-sans {
+    font-family: Playpen Sans, cursive;
+    font-weight: 600;
+    font-style: normal;
+}
+.logo {
+    color: #fff;
+    margin: 0;
+    padding-right: 55px;
+    padding-bottom: 5px;
+    text-align: right;
+}
+.btn-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+.add-button {
+    padding-bottom: 10px;
+    width: 400px;
+    height: 45px;
+    font-size: 23px;
+    border-radius: 6px;
+    border-color: azure;
+    background-color: #cac52a;
+    color: #000;
+    cursor: pointer;
+}
+.notes-container {
+    margin: 2%;
+    display: grid;
+    justify-content: center;
+}
+.note {
+    position: relative;
+    background-color: #fff;
+    margin: 5px 0;
+    padding: 15px 45px 15px 15px;
+    width: 300px;
+    border: 1px solid rgb(214, 206, 206);
+    border-radius: 6px;
+    box-shadow: 4px 4px 7px #959191;
+    font-size: 15px;
+}
+.title {
+    display: block;
+    padding: 5px;
+    border-bottom: 2px solid rgb(135, 131, 131);
+    font-size: 18px;
+    font-weight: 600;
+}
+.body {
+    padding: 5px;
+}
+.delete-icon {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    cursor: pointer;
+}
+.color-picker-btn {
+    background: linear-gradient(
+        90deg,
+        red,
+        #ff9e00,
+        #f8f900,
+        #21f411,
+        #22f24f,
+        #1ff0b5,
+        #1cb8ee 36%,
+        #1957f0 43%,
+        #20f,
+        #7e00fc 55%,
+        #ae00f1,
+        #ed59f7,
+        #f600fe,
+        #ff00df 83%,
+        #ff0027 89%,
+        #fc0045 94%,
+        red
+    );
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1;
+}
+.note .color-picker-panel {
+    background-color: #f5f5f5;
+    padding: 5px 10px 10px;
+    border: 1px solid rgb(214, 206, 206);
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #d0c8c8;
+    position: absolute;
+    bottom: -105px;
+    right: 10px;
+    z-index: 2;
+}
+.specified-colors {
+    text-decoration: none;
+    padding: 0;
+}
+.spec-color {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    border: 1px solid gray;
+    border-radius: 2px;
+    background-color: bisque;
+}
