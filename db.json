@@ -1,3 +1,22 @@
 {
-    "notes": []
+  "notes": [
+    {
+      "id": "02a0",
+      "title": "New Notehghhfhg",
+      "body": "hgjhgkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+      "backgroundColor": "rgb(181, 139, 171)"
+    },
+    {
+      "id": "aed2",
+      "title": "New Note",
+      "body": "Your text here...",
+      "backgroundColor": "rgb(77, 183, 219)"
+    },
+    {
+      "id": "06e2",
+      "title": "7",
+      "body": "Your text here...",
+      "backgroundColor": "rgb(194, 207, 116)"
+    }
+  ]
 }
