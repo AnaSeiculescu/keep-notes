@@ -1,12 +1,8 @@
-// This is a module, no need for 'use strict'
-// You can npm install packages which help you and import them here
-// Vite allows you to import images and css files if necessary
-
 import Masonry from "masonry-layout";
 
-(async function () {
-    const apiUrl = "http://localhost:3080/notes";
-    const notesList = await fetch(apiUrl).then((res) => res.json());
+(function () {
+    const fromStorage = localStorage.getItem("notes");
+    let notesList = fromStorage ? JSON.parse(fromStorage) : [];
 
     const addNoteBtn = document.querySelector("[data-add-note-btn]");
     const notesContainer = document.querySelector("[data-notes-container]");
@@ -77,32 +73,28 @@ import Masonry from "masonry-layout";
 
     const getRandomNoteColor = getRandomNoteColorFn(backgroundColorsArr);
 
-    async function handleCreateNewNote(event) {
+    function handleCreateNewNote(event) {
         event.preventDefault();
 
         const domNote = createNote();
         const [title, body] = findNoteProperties(domNote);
+        const id = crypto.randomUUID();
+        domNote.dataset.id = id;
 
         domNote.style.backgroundColor = getRandomNoteColor();
 
-        const newNote = await fetch(apiUrl, {
-            method: "POST",
-            body: JSON.stringify({
-                title: title.textContent,
-                body: body.textContent,
-                backgroundColor: domNote.style.backgroundColor,
-            }),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }).then((res) => res.json());
-
-        domNote.dataset.id = newNote.id;
+        const newNote = {
+            id,
+            title: title.textContent,
+            body: body.textContent,
+            backgroundColor: domNote.style.backgroundColor,
+        };
 
         notesList.unshift(newNote);
         notesContainer.prepend(domNote);
         selectRange(title);
         msnry.prepended(domNote);
+        localStorage.setItem("notes", JSON.stringify(notesList));
     }
 
     function buildNotes() {
@@ -124,12 +116,12 @@ import Masonry from "masonry-layout";
         return { fragment, mockNotesList };
     }
 
-    async function displayNotes() {
+    function displayNotes() {
         const { fragment, mockNotesList } = buildNotes();
         notesContainer.innerHTML = "";
         notesContainer.append(fragment);
         for (const item of mockNotesList) {
-            msnry.prepended(item);
+            msnry.appended(item);
         }
         msnry.layout();
     }
@@ -162,19 +154,16 @@ import Masonry from "masonry-layout";
         deleteIconSvgContainer.addEventListener("click", handleDeleteNote);
     }
 
-    async function handleDeleteNote(event) {
+    function handleDeleteNote(event) {
         const noteToDelete = identifyItem(event);
         const itemToDeleteId = findItemId(noteToDelete);
-
-        await fetch(`${apiUrl}/${itemToDeleteId}`, {
-            method: "DELETE",
-        });
 
         msnry.remove(noteToDelete);
 
         const index = notesList.findIndex((note) => note.id === itemToDeleteId);
         notesList.splice(index, 1);
 
+        localStorage.setItem("notes", JSON.stringify(notesList));
         msnry.layout();
     }
 
@@ -283,19 +272,17 @@ import Masonry from "masonry-layout";
         const targetedNoteId = findItemId(identifiedItem);
         const [title, body, backgroundColor] = findNoteProperties(identifiedItem);
 
-        await fetch(`${apiUrl}/${targetedNoteId}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                title: title.textContent,
-                body: body.textContent,
-                backgroundColor: backgroundColor,
-            }),
+        notesList = notesList.map((item) => {
+            if (item.id === targetedNoteId) {
+                item.title = title.textContent;
+                item.body = body.textContent;
+                item.backgroundColor = backgroundColor;
+            }
+            return item;
         });
 
         msnry.layout();
+        localStorage.setItem("notes", JSON.stringify(notesList));
     }
 
     function identifyItem(event) {
