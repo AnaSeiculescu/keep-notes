@@ -1,0 +1,43 @@
+>- # Done :
+    - the add (+) button creates a new note;
+    - the note has a title and a body, but also has a delete icon, and a color picker icon (heroicons);
+    - when created, the focus in the note is on the title;
+    - when clicked, the delete icon removes the note;
+    - when clicked, the color picker icon shows a color panel, and also closes it if it's open;
+    - when a color panel (or many..apparently) is/are open, it/they close/s when clicking outside of it/them;
+    - the color panel has : 
+        - 5 specified colors to choose from, for the note backgroud color; 
+        - and a complex color picker (input, type color) for any other color the user choses;
+    - the 5 colors are applied when clicked;
+
+--  obtained with masonry-layout library  -- :
+    - the layout is refreshed when...
+        - a new note is created and appears;
+        - inside a note the content expands on more than one row;
+        - a note is removed;
+        - the viewport changes width (responsiveness);
+        
+
+
+    - the color chosen from the complex color picker should be applied to the note background;
+    - there sould not be more than one color panel open : 
+        - when a color panel is open, and there is a click event on another color icon :
+            - this click should close the previous color panel;
+                #- means that it searches through the panels, and finds if one is open, and closes it -< 
+            - also, this click should open (as expected) its color panel;
+
+    - the notes should be stored :
+        - first in the LocalStorage of the browser;
+            - there is a list(array) of notes in localStorage;
+            - first, the add button is clicked, and a new empty note is created, and listed;
+            - with every note we create, the localStorage list gets another element;
+            
+
+>- To Be Done :
+        - then on a json-server
+            - refactor the code, for better reading and understanding, and accuracy for implementing json-server;
+    - imporove the styling of the page :
+        # - the new notes come with different background colors; 
+        - the add button - colors, design;
+        - the fonts used;
+        - the design of the color picker icon;

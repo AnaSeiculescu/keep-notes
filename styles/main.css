@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: rgb(220, 220, 209);
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    box-shadow: 0px 10px 15px black;
+}
+
+.header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/wood3.jpg");
+    background-repeat: repeat;
+    background-position: right;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.caveat-brush-regular {
+    font-family: "Caveat Brush", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 46px;
+}
+
+.playpen-sans {
+    font-family: "Playpen Sans", cursive;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.logo {
+    color: white;
+    margin: 0;
+    padding-right: 55px;
+    padding-bottom: 5px;
+    text-align: right;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.add-button {
+    padding-bottom: 10px;
+    width: 400px;
+    height: 45px;
+    font-size: 23px;
+
+    border-radius: 6px;
+    border-color: azure;
+    background-color: rgb(202, 197, 42);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.notes-container {
+    margin: 2%;
+    display: grid;
+    justify-content: center;
+}
+
+.note {
+    position: relative;
+
+    background-color: white;
+    margin: 5px 0;
+    padding: 15px 45px 15px 15px;
+    width: 300px;
+
+    border: 1px solid rgb(214, 206, 206);
+    border-radius: 6px;
+    box-shadow: 4px 4px 7px rgb(149, 145, 145);
+
+    font-size: 15px;
+}
+
+.title {
+    display: block;
+    padding: 5px;
+    border-bottom: 2px solid rgb(135, 131, 131);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.body {
+    padding: 5px;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    cursor: pointer;
+}
+
+.color-picker-btn {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 158, 0, 1) 6%,
+        rgba(248, 249, 0, 1) 12%,
+        rgba(33, 244, 17, 1) 18%,
+        rgba(34, 242, 79, 1) 24%,
+        rgba(31, 240, 181, 1) 30%,
+        rgba(28, 184, 238, 1) 36%,
+        rgba(25, 87, 240, 1) 43%,
+        rgba(34, 0, 255, 1) 49%,
+        rgba(126, 0, 252, 1) 55%,
+        rgba(174, 0, 241, 1) 62%,
+        rgba(237, 89, 247, 1) 69%,
+        rgba(246, 0, 254, 1) 76%,
+        rgba(255, 0, 223, 1) 83%,
+        rgba(255, 0, 39, 1) 89%,
+        rgba(252, 0, 69, 1) 94%,
+        rgba(255, 0, 0, 1) 100%
+    );
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.note .color-picker-panel {
+    background-color: whitesmoke;
+
+    padding: 5px 10px 10px 10px;
+    border: 1px solid rgb(214, 206, 206);
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgb(208, 200, 200);
+
+    position: absolute;
+    bottom: -105px;
+    right: 10px;
+    z-index: 2;
+}
+
+.specified-colors {
+    text-decoration: none;
+    padding: 0;
+}
+
+.spec-color {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    border: 1px solid gray;
+    border-radius: 2px;
+    background-color: bisque;
+}
